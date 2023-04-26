@@ -1,11 +1,10 @@
 package com.pedro.labpadroesprojetospring.service.impl;
 
 import com.pedro.labpadroesprojetospring.Model.Hospital;
-import com.pedro.labpadroesprojetospring.Repository.EnderecoRepository;
+import com.pedro.labpadroesprojetospring.Model.Medico;
 import com.pedro.labpadroesprojetospring.Repository.HospitalRepository;
 import com.pedro.labpadroesprojetospring.Repository.MedicoRepository;
 import com.pedro.labpadroesprojetospring.service.HospitalService;
-import com.pedro.labpadroesprojetospring.service.ViaCepService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,4 +45,11 @@ public class HospitalServiceImpl implements HospitalService {
     public void deletar(Long id) {
         hospitalRepository.deleteById(id);
     }
+
+    @Override
+    public Iterable<Medico> buscarMedicos(Long id) {
+        Optional<Hospital> hospital = hospitalRepository.findById(id);
+        return hospital.get().getMedicos();
+    }
+
 }

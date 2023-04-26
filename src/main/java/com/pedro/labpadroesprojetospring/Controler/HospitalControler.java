@@ -1,6 +1,7 @@
 package com.pedro.labpadroesprojetospring.Controler;
 
 import com.pedro.labpadroesprojetospring.Model.Hospital;
+import com.pedro.labpadroesprojetospring.Model.Medico;
 import com.pedro.labpadroesprojetospring.service.HospitalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +18,17 @@ public class HospitalControler {
     public ResponseEntity<Iterable<Hospital>> buscarTodos() {
         return ResponseEntity.ok(hospitalService.buscarTodos());
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<Hospital> buscarPorId(@PathVariable Long id) {
         return ResponseEntity.ok(hospitalService.buscarPorId(id));
     }
+
+    @GetMapping("/medicos/{id}")
+    public ResponseEntity<Iterable<Medico>> buscarTodosMedicos(@PathVariable Long id){
+        return ResponseEntity.ok(hospitalService.buscarMedicos(id));
+    }
+
     @PostMapping
     public ResponseEntity<Hospital> inserir(@RequestBody Hospital hospital) {
         hospitalService.inserir(hospital);

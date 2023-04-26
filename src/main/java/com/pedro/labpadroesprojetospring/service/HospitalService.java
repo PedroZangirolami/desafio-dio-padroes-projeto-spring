@@ -3,6 +3,8 @@ package com.pedro.labpadroesprojetospring.service;
 import com.pedro.labpadroesprojetospring.Model.Hospital;
 import com.pedro.labpadroesprojetospring.Model.Medico;
 
+import java.util.Optional;
+
 public interface HospitalService {
 
     Iterable<Hospital> buscarTodos();
@@ -15,4 +17,5 @@ public interface HospitalService {
 
     void deletar(Long id);
 
+    Iterable<Medico> buscarMedicos(Long id);
 }

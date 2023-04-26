@@ -20,11 +20,13 @@ public class Medico {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String nome;
+
+    private Long idHospital;
+
     @ManyToOne
     @JoinColumn(name = "hospital_id")
     private Hospital hospital;
-
-    private String nome;
 
     @ManyToOne
     private Endereco endereco;
