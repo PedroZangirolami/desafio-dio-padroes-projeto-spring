@@ -39,6 +39,7 @@ public class HospitalControler {
         hospitalService.atualizar(id, hospital);
         return ResponseEntity.ok(hospital);
     }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
         hospitalService.deletar(id);
